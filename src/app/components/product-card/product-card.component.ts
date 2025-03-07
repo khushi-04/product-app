@@ -6,8 +6,8 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./product-card.component.css']
 })
 export class ProductCardComponent {
-  @Input() product: any;  // Receives product data
-  @Output() addToCart = new EventEmitter<number>(); // Event for button click
+  @Input() product: any;
+  @Output() addToCart = new EventEmitter<number>();
 
   onAddToCart() {
     this.addToCart.emit(this.product.id);
