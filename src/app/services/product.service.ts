@@ -7,16 +7,16 @@ import { Observable, of } from 'rxjs';
 })
 export class ProductService {
   private products = [
-    { id: 1, name: 'Laptop', price: 1200, description: 'High-performance laptop' },
-    { id: 2, name: 'Phone', price: 800, description: 'Latest model smartphone' },
-    { id: 3, name: 'Headphones', price: 200, description: 'Noise-canceling headphones' }
+    { id: 0, name: 'PC', price: 1500},
+    { id: 1, name: 'Headphones', price: 100}, 
+    { id: 2, name: 'iPad', price: 900}
   ];
 
   getProducts(): Observable<any[]> {
     return of(this.products);  // Returns products as an Observable
   }
-
-  getProductById(id: number): Observable<any> {
-    return of(this.products.find(product => product.id === id));
+  getProductById(id: number): Observable<{ id: number, name: string, price: number } | undefined> {
+    const product = this.products.find(product => product.id === id);
+    return of(product); // Return the product as an Observable
   }
 }

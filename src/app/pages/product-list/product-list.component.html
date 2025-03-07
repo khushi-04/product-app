@@ -1,0 +1,7 @@
+@for (product of products; track product.id){
+<div>
+  <p>{{ product.name }}</p>
+  <p>Price: {{ product.price }}</p> 
+  <a [routerLink]="['/products', product.id]">View Details</a> 
+</div>
+}
